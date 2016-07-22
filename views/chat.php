@@ -15,7 +15,7 @@
 		var dnow = new Date();
 		var dmsg = new Date("<?php echo $date->format('Y-m-d H:i:sP')?>");
 		var returnDate;
-		var values = [dmsg.getHours(), dmsg.getMinutes(),dmsg.getMonth()+1,dmsg.getHours(),dmsg.getFullYear()];
+		var values = [dmsg.getHours(), dmsg.getMinutes(),dmsg.getMonth()+1,dmsg.getDate(),dmsg.getFullYear()];
 		for( var id in values ) {
 		  values[id] = values[id].toString().replace( /^([0-9])$/, '0$1' );
 		}
