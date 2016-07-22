@@ -40,7 +40,7 @@ function get_chat(json){
 		element.unbind();		
 		element.remove();
 	     }
-	     chats_list_box.append(html);
+	     chats_list_box.prepend(html);
              bind_click("#"+id,chat_click);
 	     $("#"+id+" .info-msg-event").removeClass("info-msg-event_hid");
 	     if (current_chat == id){
@@ -65,8 +65,8 @@ function make_ajax(url,handle = null,data = {}, async = true) {
  
 
 function get_chats() {
-	//make_ajax('index.php?c=telegram&m=get_chats', add_to_chats_list_box);
-	make_ajax('index.php?c=telegram&m=get_chats', get_chat);
+	make_ajax('index.php?c=telegram&m=get_chats', add_to_chats_list_box);
+	//make_ajax('index.php?c=telegram&m=get_chats', get_chat);
 }
 
 function add_to_chats_list_box(json) {
@@ -139,12 +139,10 @@ jQuery.fn.onVisibleScroll = function (trigger,container) {
 		if ( (o_top+5 > c_top) && ((o_top + o_height - 10) < (c_top + c_height))) flag_exit = true;
 
 		if (flag_exit == true){
-			console.log(o_top);
-			console.log(c_top);
 			trigger(o);
 			clearInterval(timer);
 		}
-	}, 5000);
+	}, 700);
 
     	return o;
 };

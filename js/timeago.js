@@ -48,13 +48,13 @@
       autoDispose: true,
       strings: {
 
-	prefixAgo: null,
+prefixAgo: null,
         prefixFromNow: null,
         suffixAgo: "назад",
         suffixFromNow: "",
         inPast: '',
-        seconds: "мен ",
-        minute: "около",
+        seconds: "мен мин",
+        minute: "около мин",
         minutes: "%d мин",
         hour: "около ч",
         hours: "около ч",

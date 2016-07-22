@@ -1,8 +1,8 @@
 <?php
 //var_dump($argv[1]);
 //phpinfo();
-//define('ENVIRONMENT', 'production');
-define('ENVIRONMENT', 'development');
+define('ENVIRONMENT', 'production');
+//define('ENVIRONMENT', 'development');
 switch (ENVIRONMENT)
 {
 	case 'development':

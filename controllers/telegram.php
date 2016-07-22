@@ -146,7 +146,7 @@ class CI_telegram extends CI_Controller {
 					'from' => $message_from,
 					'date' => $message_date,
 					'chat' => $message_chat,
-					'text' => $message_text,
+					'text' => htmlentities(strip_tags(htmlspecialchars($message_text))),
 					'looked' => true 
 					)
 			);	
@@ -232,7 +232,7 @@ class CI_telegram extends CI_Controller {
 						'from' => $message_from,
 						'date' => $message_date,
 						'chat' => $message_chat,
-						'text' => $message_text
+						'text' => htmlentities(strip_tags(htmlspecialchars($message_text))),
 						)
 				);	
 				$new_message->insert();
