@@ -91,7 +91,6 @@ body {
   height: 20px;
   line-height: 20px;
   float: left;
-  width: 80%;
   color: #144867;
   margin-top: 17px;
 }
@@ -99,8 +98,7 @@ body {
 .info-time {
   height: 20px;
   line-height: 20px;
-  float: left;
-  width: 20%;
+  float: right;
   color: #7b7b7b;
   margin-top: 17px;
 }
