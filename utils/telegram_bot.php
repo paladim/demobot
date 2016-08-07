@@ -38,6 +38,9 @@ class CI_telegram_bot
 		if ($return['ok'] == true and $return['result']['total_count'] >= 1) {
 			$file_id = $return['result']['photos'][0][0]['file_id'];
 			$file_path = $return['result']['photos'][0][0]['file_path'];
+			$params = compact('file_id');
+			$return = $this->sendRequest('getFile', $params);
+			$file_path = $return['result']['file_path'];
 			$file_content =	file_get_contents($this->baseURLfile.$file_path);
 			$fp = fopen("img/users/".$user_id.".jpg", "w");
 			fwrite($fp, $file_content);

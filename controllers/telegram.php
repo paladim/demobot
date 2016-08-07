@@ -165,16 +165,22 @@ class CI_telegram extends CI_Controller {
         public function index()
         {
 		$tb =& load_class('telegram_bot', 'utils');
-		$user =& load_class('user', 'models');
-		$chat =& load_class('chat', 'models');
-		$message =& load_class('message', 'models');
-		$update =& load_class('update', 'models');
+		require_once(MODELSPATH.'user.php');
+		require_once(MODELSPATH.'chat.php');
+		require_once(MODELSPATH.'message.php');
+		require_once(MODELSPATH.'update.php');
+		//$_user =& load_class('user', 'models');
+		//$_chat =& load_class('chat', 'models');
+		//$_message =& load_class('message', 'models');
+		//$_update =& load_class('update', 'models');
 		
-		$last_update_id = $update->get_last_update_id();
+		$_update = new CI_update();
+		$last_update_id = $_update->get_last_update_id();
 
 		while(true)
 		{
-			$updates = $tb->pollUpdates($last_update_id,5);
+		try {
+			$updates = $tb->pollUpdates($last_update_id,60);
 
 			$count = count($updates['result']);
 			if ($count > 0 )
@@ -250,7 +256,10 @@ class CI_telegram extends CI_Controller {
 			}
 				echo "last update id ====== ".$last_update_id;
 				var_dump($updates);
+		} catch (Exception $e) { 
+			echo 'exception ',  $e->getMessage(), "\n";
 		}
+	}
         }
 
 }
